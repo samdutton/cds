@@ -159,14 +159,12 @@ URL: https://code.google.com/p/io-2012-slides
 </slide>
 
 <slide class="nobackground">
-  <hgroup>
-    <h2>Media for the open web</h2>
-  </hgroup>
     <article class="fill flexbox vcenter">
       <img src="images/media.png" alt="Chrome media technologies" />
     </article>
     <aside class="note">
       <p>So whadda we got?</p>
+      <p>Media APIs for the open Web.</p>
       <p>Standardized, interoperable technologies that work across multiple platforms.</p>
       <p>We're going to give just a taste of what we can do on the web.</p>
       <p>WebRTC for realtime communications, Web Audio for creating and processing audio, the track element for accessibility, and codecs for the multi-device web.</p>
@@ -230,6 +228,7 @@ URL: https://code.google.com/p/io-2012-slides
   </article>
   <aside class="note">
   <p>We have well over one billion WebRTC-enabled users today.</p>
+  <p>Overall device support for WebRTC at end-2016 now predicted at 4.2bn (<a href="http://disruptivewireless.blogspot.com/" title="Dean Bubley blog post">http://disruptivewireless.blogspot.com/</a>)</p>
   <p>Firefox and Chrome on desktop and mobile.</p>
   <p>Opera for desktop and coming to mobile.</p>
   <p>The Qt framework has moved to using Chromium, and that will provide support on a huge range of native and embedded platforms.</p>
@@ -482,7 +481,7 @@ send(myData);
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div style="margin: 0 0 2em 0; font-weight: bold">RTCDataChannel without signaling</div>
+      <div style="margin: 0 0 2em 0; font-weight: bold">The basics</div>
       <div class="big"><a href="http://www.simpl.info/dc" title="Single page RTCDataChannel example">simpl.info/dc</a></div>
     </article>
     <aside class="note">
@@ -495,6 +494,10 @@ send(myData);
       <a class="big" href="http://www.sharefest.me/" title="Sharefest app">Sharefest</a>
   </article>
   <aside class="note">
+    <p>Sharefest allows us to share files using data channels.</p>
+    <p>It's straightforward to use: you just select a file and share a URL.</p>
+    <p>Sharefest then establishes a peer connection between each of the devices that open the URL.</p>
+    <p>Once that's done, the file can be shared directly, peer to peer, without going via an intermediary service.</p>
   </aside>
 </slide>
 
@@ -504,6 +507,10 @@ send(myData);
     <a class="big" href="https://peercdn.com/" title="peerCDN">peerCDN</a>
   </article>
   <aside class="note">
+    <p>peerCDN is even more radical.</p>
+    <p>This is a prototype peer-to-peer content distribution network.</p>
+    <p>To use peerCDN, all you have to do is to include a link to the peerCDN JavaScript file in your web page.</p>
+    <p>peerCDN will then attempt to get assets on the page from other connected peers. If that's not possible, assets will simply be downloaded from your web server as normal.</p>
   </aside>
 </slide>
 
@@ -976,6 +983,7 @@ function gotAudio(stream) {
     <p>We can also use JavaScript to control the source of a video.</p>
     <p>The Media Source API enables JavaScript to build streams for playback from chunks of video.</p>
     <p>This use cases such as adaptive streaming and time shifting.</p>
+    <p>MSE</p>
   </aside>
 </slide>
 
@@ -984,10 +992,14 @@ function gotAudio(stream) {
     <div class="big" style="margin: 0 0 1em 0;"><a href="http://dash-mse-test.appspot.com/dash-player.html?url=http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd" title="Sample DASH Player">DASH video</a></div>
     <div style="margin: 0 0 1em 0;"><a href="http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd" title="Manifest file">DASH manifest file</a></div>
     <div><a href="http://www.bbc.co.uk/rd/blog/2013/09/mpeg-dash-test-streams" title="DASH at the BBC">More about DASH</a></div>
+    <div><a href="hps://github.com/Dash-Industry-Forum/dash.js " title="dash.js Github repo">dash.js</a></div>
   </article>
   <aside class="note">
     <p>EME demos use a JavaScript library to support MPEG DASH.</p>
-    <p>DASH which allows streaming of media over HTTP, somewhat like Apple's HTTP Live Streaming.</p>
+    <p>DASH allows adaptive streaming of media over HTTP, somewhat like Apple's HTTP Live Streaming.</p>
+    <p>You create multiple bitrate encodings of a video on the server then build a manifest file that describes these.</p>
+    <p>MSE implementations can then parse the manifest, download segments of video at an appropriate bitrate, and feed them to a video element when it gets hungry.</p>
+    <p>Adaptive delivery is crucial for dynamically coping with bandwidth constraints in the multi-device world.</p>
   </aside>
 </slide>
 
@@ -1026,7 +1038,8 @@ function gotAudio(stream) {
     <h2>Accessibility and WebVTT</h2>
   </hgroup>
   <aside class="note">
-    <p>So we've got great support for video across platforms, but what about accessibility? What about captions and subtitles? We've got that on Chrome for Android too.</p>
+    <p>So we've got great support for video across platforms, but what about accessibility?</p>
+    <p>What about captions and subtitles? We've got that on lots of platforms too.</p>
   </aside>
 </slide>
 
@@ -1112,11 +1125,14 @@ function gotAudio(stream) {
   <article class="fill flexbox vcenter">
     <div class="demoLabel">Alpha transparency</div>
     <p class="big" style="margin: 0 0 1.5em 0;"><a href="http://simpl.info/alpha" title="WebM alpha transparency demo">simpl.info/alpha</a></p>
-    <div style="font-size: 70%"><a href="http://updates.html5rocks.com/2013/07/Alpha-transparency-in-Chrome-video" title="HTML5 Rocks Update about alpha transparancy in WebM">HTML5 Rocks update</a></div>
+    <div style="font-size: 70%"><a href="http://updates.html5rocks.com/2013/07/Alpha-transparency-in-Chrome-video" title="HTML5 Rocks Update about alpha transparancy in WebM">How to do it</a></div>
   </article>
   <aside class="note">
-    <p>Just to show how far we've come with video on the web, here's a demo of using alpha transparency.</p>
-    <p>Just implemented in Chrome stable, the ability to use the alpha transparency with VP8.</p>
+    <p>Just to finish, I'd like to show how far we've come with video on the web.</p>
+    <p>Just implemented in Chrome stable, the ability to use alpha transparency with VP8.</p>
+    <p>You can see here two videos that have been encoded with transparent backgrounds.</p>
+    <p>The great thing about the video element is... it's an element!</p>
+    <p>So you can drag around the videos, change the z-index, apply CSS filters, use CSS animations - even play one video over another.</p>
     <p>Great for green screening!</p>
   </aside>
 </slide>
@@ -1138,6 +1154,7 @@ function gotAudio(stream) {
     <ul>
       <li><a href="http://chromestatus.com" title="Status of APIS on Chrome">chromestatus.com</a></li>
       <li><a href="http://caniuse.com" title="API implementation stats">caniuse.com</a></li>
+      <li><a href="http://velocityconf.com/velocityny2013/public/schedule/detail/31326" title="Advice on using the video element from Will Law, Akamai, at Velocity NY 2013 (slides are available from PPT link)">Optimizing the Black Box of HTML &lt;video&gt;</a></li>
       <li><a href="http://simpl.info/canplaytype" title="canPlayType() demo"><code>canPlayType()</code></a></li>
     </ul>
   </article>
@@ -1179,7 +1196,6 @@ function gotAudio(stream) {
       <li><a href="http://www.html5rocks.com/en/tutorials/webrtc/infrastructure/" title="HTML5 Rocks article about WebRTC infrastructure">WebRTC in the real world: STUN, TURN and signaling</a></li>
       <li><a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/" title="HTML5 Rocks article about getUserMedia">Capturing audio and video in HTML5</a></li>
       <li><a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/" title="HTML5 Rocks article about WebRTC">Getting Started With WebRTC</a></li>
-      <li><a href="http://www.html5rocks.com/en/search?q=webrtc" title="HTML5 content tagged WebRTC">Updates</a></li>
     </ul>
     <li>...and a book: <a href="http://www.webrtcbook.com" title="WebRTC ebook download">webrtcbook.com</a></li>
   </ul>
@@ -1190,9 +1206,6 @@ function gotAudio(stream) {
 </slide>
 
 <slide class="nobackground">
-  <hgroup>
-    <h2>Media for the open web</h2>
-  </hgroup>
     <article class="fill flexbox vcenter">
       <img src="images/media.png" alt="Chrome media technologies" />
     </article>
@@ -1206,7 +1219,7 @@ function gotAudio(stream) {
 
 <slide>
   <article class="fill flexbox vcenter">
-    <p class="biggish" style="margin: 0 0 1em 0">Talk to the Chrome Media teams</p>
+    <p class="biggish" style="font-weight: bold; margin: 0 0 1em 0">Talk to the Chrome Media teams</p>
     <p class="quiteBig">2nd floor micro kitchen, 12:30</p>
   </article>
   <aside class="note">
