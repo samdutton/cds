@@ -269,7 +269,7 @@ URL: https://code.google.com/p/io-2012-slides
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class='big'><img src="images/no.png" alt="RTC via a server" style='max-width: 100%' /></div>
+      <div class='big'><img src="images/nonp2p.png" alt="RTC via a server" style='max-width: 100%' /></div>
     </article>
     <aside class="note">
       <p>WebRTC is open source, plugin-free, free for end user and free for developers.</p>
@@ -281,7 +281,7 @@ URL: https://code.google.com/p/io-2012-slides
 
 <slide class="nobackground">
     <article class="fill flexbox vcenter">
-      <div class='big'><img src="images/yes.png" alt="RTC peer to peer" style='max-width: 100%' /></div>
+      <div class='big'><img src="images/p2p.png" alt="RTC peer to peer" style='max-width: 100%' /></div>
     </article>
     <aside class="note">
       <p>So WebRTC is peer to peer - with a nice friendly fluffy cloud right in the middle.</p>
@@ -785,7 +785,7 @@ navigator.webkitGetUserMedia(constraints, gotStream);
 
 <slide>
   <hgroup>
-    <h2>The Web Audio Pipeline</h2>
+    <h2>The Web Audio pipeline</h2>
   </hgroup>
   <article>
     <ul class="tight" style="font-size: 0.82em">
@@ -799,8 +799,8 @@ navigator.webkitGetUserMedia(constraints, gotStream);
       <li>Filtering effects: radio, telephone, etc.</li>
       <li>3D positioning of sounds</li>
       <li>Doppler shift for moving sources</li>
-      <li>Low-latency - input->speaker as low as 5ms</li>
-      <li>Integrated with WebRTC through MediaStreams</li>
+      <li>Low latency: input → speaker as low as 5ms</li>
+      <li>Integrated with WebRTC through MediaStream</li>
 
     </ul>
   </article>
@@ -908,12 +908,14 @@ function gotAudio(stream) {
   <hgroup>
     <h2>Synths and drum machines</h2>
   </hgroup>
-  <article class="fill flexbox vcenter">
-    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://webaudiodemos.appspot.com/MIDIDrums/index.html" title="MIDI drum machine">MIDI drums</a></div>
-    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://webaudiodemos.appspot.com/wubwubwub/index.html" title="wubwubwub DJ app">wubwubwub</a></div>
-    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://gridflux.googlecode.com/git/index.html" title="Gridflux drum machine">GRIDFLUX</a></div>
-    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://modulargrid.net/e/racks/synth" title="Modular Grid synth">ModularGrid</a></div>
-    <div class="biggish" style="margin: 0 0 1em 0;"><a href="https://www.soundtrap.com/studio/" title="Soundtrap studio">SoundTrap</a></div>
+  <article>
+  <ul>
+    <li><a href="http://webaudiodemos.appspot.com/MIDIDrums/index.html" title="MIDI drum machine">MIDI drums</a></li>
+    <li><a href="http://webaudiodemos.appspot.com/wubwubwub/index.html" title="wubwubwub DJ app">wubwubwub</a></li>
+    <li><a href="http://gridflux.googlecode.com/git/index.html" title="Gridflux drum machine">GRIDFLUX</a></li>
+    <li><a href="http://modulargrid.net/e/racks/synth" title="Modular Grid synth">ModularGrid</a></li>
+    <li><a href="https://www.soundtrap.com/studio/" title="Soundtrap studio">SoundTrap</a></li>
+  </ul>
   </article>
   <aside class="note">
   </aside>
@@ -938,7 +940,7 @@ function gotAudio(stream) {
   </hgroup>
   <article>
   <ul>
-    <li>VP8 built into devices &ndash; including camera chips</li>
+    <li>VP8 built into devices &mdash; including camera chips</li>
     <li><a href="http://wiki.webmproject.org/hardware/arm-socs">Systems with dedicated VP8 support</a></li>
     <li><a href="http://localhost/vp9/index.html" title="VP9/H.264 comparison">VP9 v H.264: Google I/O</a></li>
   </ul>
@@ -1000,11 +1002,17 @@ function gotAudio(stream) {
 </slide>
 
 <slide class="nobackground">
-  <article  class="fill flexbox vcenter">
-    <div class="big" style="margin: 0 0 1em 0;"><a href="http://dash-mse-test.appspot.com/dash-player.html?url=http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd" title="Sample DASH Player">DASH video</a></div>
-    <div style="margin: 0 0 1em 0;"><a href="http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd" title="Manifest file">DASH manifest file</a></div>
-    <div><a href="http://www.bbc.co.uk/rd/blog/2013/09/mpeg-dash-test-streams" title="DASH at the BBC">More about DASH</a></div>
-    <div><a href="hps://github.com/Dash-Industry-Forum/dash.js " title="dash.js Github repo">dash.js</a></div>
+  <hgroup>
+    <h2>DASH</h2>
+    <h3>Dynamic Adaptive Streaming over HTTP</h3>
+  </hgroup>
+  <article>
+    <ul>
+      <li><a href="http://dash-mse-test.appspot.com/dash-player.html?url=http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd" title="Sample DASH Player">Sample DASH player</a></li>
+      <li><a href="http://yt-dash-mse-test.commondatastorage.googleapis.com/media/car-20120827-manifest.mpd" title="Manifest file">DASH manifest file</a></li>
+      <li><a href="hps://github.com/Dash-Industry-Forum/dash.js " title="dash.js Github repo">dash.js</a></li>
+      <li><a href="http://www.bbc.co.uk/rd/blog/2013/09/mpeg-dash-test-streams" title="BBC article about MPEG DASH">What is DASH?</a></li>
+    </ul>
   </article>
   <aside class="note">
     <p>EME demos use a JavaScript library to support MPEG DASH.</p>
@@ -1025,7 +1033,6 @@ function gotAudio(stream) {
       <li><a href="http://dash-mse-test.appspot.com" title="">YouTube demo</a></li>
       <li><a href="http://techblog.netflix.com/2013/04/html5-video-at-netflix.html" title="HTML5 Video at Netflix">Netflix on Chrome OS</a></li>
       <li><a href="http://downloads.webmproject.org/adaptive-encrypted-demo/adaptive/index.html" title="WebM encrypted+adaptive demo">WebM encrypted + adaptive demo</a></li>
-      <li><a href="http://www.bbc.co.uk/rd/blog/2013/09/mpeg-dash-test-streams" title="BBC article about MPEG DASH">What is DASH?</a></li>
     </ul>
   </article>
   <aside class="note">
@@ -1183,13 +1190,35 @@ function gotAudio(stream) {
   <article>
     <ul>
       <li>HTML only: <a href="http://camendesign.co.uk/code/video_for_everybody" title="Video for Everybody video fallback using HTML only">Video for Everybody</a></li>
-      <li>JavaScript player comparison: <a href="http://html5video.org/wiki/HTML5_Video_Player_Comparison" title="HTML5 video player comparison">html5video.org</a>, <a href="http://praegnanz.de/html5video/" title="Video player comparison table">praegnenz.de</a></li>
+      <li>JavaScript player comparison:
+        <ul class="tight">
+          <li><a href="http://html5video.org/wiki/HTML5_Video_Player_Comparison" title="HTML5 video player comparison">html5video.org</a></li>
+          <li><a href="http://praegnanz.de/html5video/" title="Video player comparison table">praegnenz.de</a></li>
+        </ul>
+      </li>
     </ul>
   </article>
   <aside class="note">
     <p>What about the real world?</p>
     <p>There are lots of JavaScript libraries to provide fallbacks for the 15% of browsers that don't support the video and audio elements.</p>
     <p>It's also worth mentioning canPlayType(), which works on Android and iOS.</p>
+  </aside>
+</slide>
+
+<slide class="nobackground">
+  <hgroup>
+    <h2>More about media</h2>
+  </hgroup>
+  <article>
+    <ul>
+      <li><a href="http://www.html5rocks.com/en/features/multimedia" title="Media APIs on HTML5 Rocks">HTML5 Rocks</a></li>
+      <li><a href="http://www.xiph.org/video/vid1.shtml" title="'This first video from Xiph.Org presents the technical foundations of modern digital media via a half-hour firehose of information.'">A Digital Media Primer for Geeks</a></li>
+      <li><a href="http://diveintohtml5.info/video.html" title="Mark Pilgrim's detailed guide to using video in web apps">Dive Into HTML5: Video on the Web</a></li>
+      <li>Mozilla Developer Network: <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML5_audio_and_video" title="Guide to the video and audio elements, with lots of useful links">Using HTML5 audio and video</a></li>
+    </ul>
+  </article>
+  <aside class="note">
+missing.</p>
   </aside>
 </slide>
 
