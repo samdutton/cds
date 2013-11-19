@@ -770,27 +770,26 @@ navigator.webkitGetUserMedia(constraints, gotStream);
   </hgroup>
   <article>
   <ul>
-    <li>High performance for multiple sounds</li>
-    <li>Precise timing of overlapping sounds</li>
-    <li>Audio pipeline/routing for effects and filters</li>
-    <li>Visualize and manipulate audio data</li>
+    <li>Precise timing of multiple sounds</li>
+    <li>Audio <a href="http://webaudiodemos.appspot.com/midi-synth/index.html" title="MIDI synth">pipeline</a> for routing and processing</li>
+    <li>Analysis of audio data</li>
     <li>&lt;audio&gt; can be used as input to Web Audio!</li>
   </ul>
   </article>
   <aside class="note">
-    <p>&lt;audio&gt; for playing 'long' files and streaming</p>
-    <p>Timing is particularly important for games - and you need to be able to overlap sounds.</p>
+    <p>Where the audio element combines loading, decoding and playing into one blaxk box, Web Audio gives you precise control over each of those steps, which means you can schedule sounds to sample accuracy.  Timing is particularly important for games.  In addition, Web Audio offers a powerful synthesis, routing and processing pipeline, and analysis tools.</p>
+    <p>demo of MIDI synth</p>
+    <p>and you can still use &lt;audio&gt; for streaming long files through web audio.</p>
   </aside>
 </slide>
 
 <slide>
   <hgroup>
-    <h2>Web Audio can do a LOT...</h2>
+    <h2>The Web Audio Pipeline</h2>
   </hgroup>
   <article>
     <ul class="tight" style="font-size: 0.82em">
       <li>Oscillators</li>
-      <li>Sequences/rhythms/loops</li>
       <li>Fade-ins/fade-outs/sweeps</li>
       <li>Time-based event scheduling</li>
       <li>Frequency and waveform analysis</li>
@@ -798,31 +797,32 @@ navigator.webkitGetUserMedia(constraints, gotStream);
       <li>Waveshaping (non-linear distortion)</li>
       <li>Dynamics processing (compression)</li>
       <li>Filtering effects: radio, telephone, etc.</li>
-      <li>Distance attenuation and sound directionality</li>
-      <li>Doppler shift: changing pitch for moving sources</li>
-      <li>3D spatialization: positioning sound at a particular place</li>
+      <li>3D positioning of sounds</li>
+      <li>Doppler shift for moving sources</li>
+      <li>Low-latency - input->speaker as low as 5ms</li>
+      <li>Integrated with WebRTC through MediaStreams</li>
+
     </ul>
   </article>
   <aside class="note">
+  <p>We have lots of tools to easily do complex features, like fades, reverb, 3D positioning and more.</p>
   </aside>
 </slide>
 
 <slide>
   <hgroup>
-    <h2>Web Audio status</h2>
+    <h2>Web Audio is cross-browser!</h2>
   </hgroup>
   <article>
     <ul style="margin-bottom: 1em">
       <li>Chrome desktop and Android &mdash; including gUM input</li>
+      <li>Firefox 25 desktop and Android!</li>
       <li>Safari 6.0+ and iOS6+</li>
-      <li>Firefox 25 desktop and Android</li>
-      <li>Mic to speaker latency as low as 5ms</li>
-      <li>Input to WebRTC in Chrome</li>
-      <li>Output in the works</li>
     </ul>
-    <div>More information? <a href="http://www.youtube.com/watch?v=wZrNI-86zYI" title="Chris Wilson Web Audio presentation">Anything by Chris Wilson!</a></div>
+    <div>More information? <a href="http://www.youtube.com/watch?v=wZrNI-86zYI" title="Chris Wilson Web Audio presentation">Make the Web Rock!</a></div>
   </article>
   <aside class="note">
+  <p>I'm also happy to report that Firefox just shipped web audio in FF25, so we now have web audio support across Chrome, Safari and Firefox, on Mac, Windows, Linux, iOS and Android!
   </aside>
 </slide>
 
@@ -894,23 +894,26 @@ function gotAudio(stream) {
   </hgroup>
   <article>
   <ul>
-    <li>New proposed standard</li>
-    <li>Standard MIDI files: not just cheesy background music!</li>
-    <li>Connect controllers, synthesizers and more</li>
-    <li>Implemented in Mac Chrome 30 behind a flag</li>
+    <li>New standard under development</li>
+    <li>Connect <a href="http://webaudiodemos.appspot.com/wubwubwub/index.html">controllers</a>, synthesizers and more</li>
+    <li>Implemented in Mac Chrome 30 behind a flag, others coming</li>
   </ul>
   </article>
   <aside class="note">
+    <p>This is not about cheesy Standard MIDI Files!</p>
   </aside>
 </slide>
 
 <slide>
+  <hgroup>
+    <h2>Synths and drum machines</h2>
+  </hgroup>
   <article class="fill flexbox vcenter">
-    <div style="margin: 0 0 2em 0; font-weight: bold">Synths and drum machines</div>
-    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://webaudiodemos.appspot.com/MIDIDrums/index.html" title="MIDI drum machine demo">MIDI drums</a></div>
-    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://webaudiodemos.appspot.com/midi-synth/index.html" title="MIDI synth">MIDI synth</a></div>
-    <div class="biggish" style="margin: 0 0 2em 0;"><a href="http://gridflux.googlecode.com/git/index.html" title="Gidflux synth">GRIDFLUX</a></div>
-    <div style="margin: 0 0 1.5em 0;"><a href="http://flippinawesome.org/2013/10/28/audio-synthesis-in-javascript/" title="Gidflux synth">Audio synthesis in JavaScript</a></div>
+    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://webaudiodemos.appspot.com/MIDIDrums/index.html" title="MIDI drum machine">MIDI drums</a></div>
+    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://webaudiodemos.appspot.com/wubwubwub/index.html" title="wubwubwub DJ app">wubwubwub</a></div>
+    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://gridflux.googlecode.com/git/index.html" title="Gridflux drum machine">GRIDFLUX</a></div>
+    <div class="biggish" style="margin: 0 0 1em 0;"><a href="http://modulargrid.net/e/racks/synth" title="Modular Grid synth">ModularGrid</a></div>
+    <div class="biggish" style="margin: 0 0 1em 0;"><a href="https://www.soundtrap.com/studio/" title="Soundtrap studio">SoundTrap</a></div>
   </article>
   <aside class="note">
   </aside>
