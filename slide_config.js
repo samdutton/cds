@@ -25,6 +25,11 @@ var SLIDE_CONFIG = {
       gplus: 'https://plus.google.com/101097675148849633109/posts'
     },
     {
+      name: 'Chris Wilson',
+      company: 'Developer Advocate, Google Chrome',
+      gplus: 'https://plus.sandbox.google.com/+ChrisWilson/posts'
+    },
+    {
     name: 'Sam Dutton',
     company: 'Developer Advocate, Google Chrome',
     gplus: 'http://plus.samdutton.com',
